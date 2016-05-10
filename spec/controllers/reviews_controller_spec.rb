@@ -9,7 +9,7 @@ RSpec.describe ReviewsController, type: :controller do
                       title: "mediocre"
       )
 
-      get :index
+      get :index, format: :json
       expect(assigns(:reviews)).to eq([review])
       expect(response).to render_template("index")
     end
@@ -25,7 +25,7 @@ RSpec.describe ReviewsController, type: :controller do
     )
       get :show, id: review.id
 
-      expect(assigns(:review)).to eq([review])
+      expect(assigns(:review)).to eq(review)
     end
   end
 
