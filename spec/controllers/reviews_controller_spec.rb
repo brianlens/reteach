@@ -30,27 +30,27 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
 
-  describe "GET#new" do
-    it "assigns a new review as @reviews" do
-    get :new
-    expect(assigns(:review)).to be_a_new(Review)
-
-    end
-  end
-
-
-  describe "POST#create" do
-    context "with valid params" do
-      let(:valid_params) {
-        { review: {rating: 2, description:"Well that sucked", title:"mediocre"} }
-      }
-
-      it "creates a new Review" do
-        expect {
-          post :create, valid_params
-        }.to change(Review, :count).by(1)
-       end
-     end
-   end
+  # describe "GET#new" do
+  #   it "assigns a new review as @reviews" do
+  #   get :new
+  #   expect(assigns(:review)).to be_a_new(Review)
+  #
+  #   end
+  # end
+  #
+  #
+  # describe "POST#create" do
+  #   context "with valid params" do
+  #     let(:valid_params) {
+  #       { review: {rating: 2, description:"Well that sucked", title:"mediocre"} }
+  #     }
+  #
+  #     it "creates a new Review" do
+  #       expect {
+  #         post :create, valid_params
+  #       }.to change(Review, :count).by(1)
+  #      end
+  #    end
+  #  end
 
 end
