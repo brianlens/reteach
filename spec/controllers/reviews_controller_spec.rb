@@ -12,18 +12,6 @@ RSpec.describe ReviewsController, type: :controller do
     end
   end
 
-  # describe "GET show" do
-  #  let(:teacher) { create(:teacher) }
-  #  let!(:review) { create(:review) }
-  #
-  #  it "assigns the requested review as @review" do
-  #
-  #      get :show, teacher_id: teacher.to_param, format: :json
-  #      expect(assigns(:review)).to eq(review)
-  #    end
-  #  end
-
-
   # describe "POST create" do
   #   let!(:teacher) { create(:teacher) }
   #   let!(:user) { create(:user) }
@@ -34,30 +22,12 @@ RSpec.describe ReviewsController, type: :controller do
   #   end
   # end
 
-end
- #
 
- #
- #
- #  describe "GET#new" do
- #    it "assigns a new review as @reviews" do
- #    get :new
- #    expect(assigns(:review)).to be_a_new(Review)
- #
- #    end
- #  end
- #
- #
- #  describe "POST#create" do
- #    context "with valid params" do
- #      let(:valid_params) {
- #        { review: {rating: 2, description:"Well that sucked", title:"mediocre"} }
- #      }
- #
- #      it "creates a new Review" do
- #        expect {
- #          post :create, valid_params
- #        }.to change(Review, :count).by(1)
- #       end
- #     end
- #   end
+   #  describe "GET#new" do
+   #    it "assigns a new review as @reviews" do
+   #    get :new
+   #    expect(assigns(:review)).to be_a_new(Review)
+   #
+   #    end
+   #  end
+end

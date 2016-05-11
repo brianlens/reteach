@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get  'reviews/new'
   post 'reviews/create'
   get  'teachers/index'
+  get  'teachers/show'
 
   devise_for :users
   root 'schools#index'

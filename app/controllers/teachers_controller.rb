@@ -9,6 +9,11 @@ class TeachersController < ActionController::Base
     end
   end
 
+  # def show
+  # end
+
+
+
   protected
 
   def set_school

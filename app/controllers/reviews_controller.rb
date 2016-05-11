@@ -10,44 +10,18 @@ class ReviewsController < ActionController::Base
   end
 
   # def create
-  #   @review = Review.new(review_params)
-  #
-  #   respond_to do |format|
-  #     if @review.save
-  #       format.json {render :show, status: :created, location:@review}
-  #     else
-  #       format.json {render json: @review.errors, status: :unprocessable_entity}
-  #     end
-  #   end
   # end
 
-
-
-
-  def show
-    @review = Review.find(params[:id])
-  end
+  # def show
+  # end
   #
   # def new
-  #   @review = Review.new
   # end
   #
-  # def create
-  #   @review = Review.new(review_params)
-  #   respond_to do |format|
-  #     if @review.save
-  #       format.json { render :show, status: :created, location: @review }
-  #     else
-  #       format.json { render json: @review.errors, status: :unprocessable_entity }
-  #     end
-  #   end
+  # def destroy
   # end
-  #
-  # private
-  #
-  # def review_params
-  #   params.require(:review).permit(:title, :description, :rating)
-  # end
+
+
 
   protected
 
