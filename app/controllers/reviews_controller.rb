@@ -9,19 +9,24 @@ class ReviewsController < ActionController::Base
    end
   end
 
-  def create
-    @review = Review.new(review_params)
-    @review.teacher = @teacher
-
-    respond_to do |format|
-    format.json {render json: @reviews}
-   end
-  end
-
-
-  # def show
-  #   @review = Review.find(params[:id])
+  # def create
+  #   @review = Review.new(review_params)
+  #
+  #   respond_to do |format|
+  #     if @review.save
+  #       format.json {render :show, status: :created, location:@review}
+  #     else
+  #       format.json {render json: @review.errors, status: :unprocessable_entity}
+  #     end
+  #   end
   # end
+
+
+
+
+  def show
+    @review = Review.find(params[:id])
+  end
   #
   # def new
   #   @review = Review.new
@@ -50,6 +55,9 @@ class ReviewsController < ActionController::Base
     @teacher = Teacher.find(params[:teacher_id])
   end
 
+  def review_params
+    params.require(:reviews).permit(:title, :description, :teacher_id, :user_id)
+  end
 
 
 end

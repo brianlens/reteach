@@ -3,37 +3,40 @@ require 'rails_helper'
 RSpec.describe ReviewsController, type: :controller do
  describe "GET index" do
    let(:teacher) { create(:teacher) }
+   let(:user) { create(:user) }
    let!(:reviews) { create_list(:review, 2, teacher: teacher) }
 
     it "assigns reviews to @reviews" do
-      get :index, teacher_id: teacher.to_param, format: :json
+      get :index, teacher_id: teacher.to_param, user_id: user.to_param, format: :json
       expect(assigns(:reviews)).to eq reviews
     end
   end
 
-  describe "POST create" do
-    let(:teacher) { create(:teacher) }
+  # describe "GET show" do
+  #  let(:teacher) { create(:teacher) }
+  #  let!(:review) { create(:review) }
+  #
+  #  it "assigns the requested review as @review" do
+  #
+  #      get :show, teacher_id: teacher.to_param, format: :json
+  #      expect(assigns(:review)).to eq(review)
+  #    end
+  #  end
 
-    it "creates a new record for review" do
-      post :create, teacher_id: teacher.to_param, format: :json
-      expect(assigns(:reviews)).to eq reviews
-    end
-  end
+
+  # describe "POST create" do
+  #   let!(:teacher) { create(:teacher) }
+  #   let!(:user) { create(:user) }
+  #
+  #   it "creates a new review and assigns it to @reviews" do
+  #     post :create, teacher_id: teacher.to_param, format: :json
+  #     expect(assigns(:reviews)).to eq reviews
+  #   end
+  # end
 
 end
  #
- # describe "GET show" do
- #  it "shows review with id x" do
- #    review = Review.create(
- #                    rating: 2,
- #                    description: "well that sucked",
- #                    title: "mediocre"
- #    )
- #      get :show, id: review.id
- #
- #      expect(assigns(:review)).to eq(review)
- #    end
- #  end
+
  #
  #
  #  describe "GET#new" do
