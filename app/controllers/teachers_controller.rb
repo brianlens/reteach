@@ -9,8 +9,13 @@ class TeachersController < ActionController::Base
     end
   end
 
-  # def show
-  # end
+  def show
+    @teacher = Teacher.find(params[:teacher_id])
+
+    respond_to do |format|
+    format.json {render json: @teachers}
+   end
+  end
 
 
 

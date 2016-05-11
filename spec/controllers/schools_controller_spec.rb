@@ -9,4 +9,13 @@ RSpec.describe SchoolsController, type: :controller do
       expect(assigns(:schools)).to eq schools
     end
   end
+
+  describe "GET show" do
+    let!(:schools) { create(:school)}
+
+    it "assigns a school with :id = x " do
+      get :show, school_id: school.to_param, format: :json
+      expect(assigns(:school)).to eq school
+    end
+  end
 end

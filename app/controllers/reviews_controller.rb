@@ -12,8 +12,13 @@ class ReviewsController < ActionController::Base
   # def create
   # end
 
-  # def show
-  # end
+  def show
+    @review = Review.find(params[:teacher_id])
+
+    respond_to do |format|
+    format.json {render json: @review}
+   end
+  end
   #
   # def new
   # end
@@ -32,6 +37,4 @@ class ReviewsController < ActionController::Base
   def review_params
     params.require(:reviews).permit(:title, :description, :teacher_id, :user_id)
   end
-
-
 end

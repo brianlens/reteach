@@ -12,8 +12,11 @@ RSpec.describe TeachersController, type: :controller do
   end
 
   describe "GET show" do
+    let!(:school) { create(:school) }
+    let(:teacher) { create(:teacher) }
+
     it "assigns a teacher to @teacher" do
-      get :show, school_id: school.to_param, format: :json
+      get :show, teacher_id: teacher.to_param, school_id: school.to_param, format: :json
       expect(assigns(:teacher)).to eq(teacher)
     end
   end

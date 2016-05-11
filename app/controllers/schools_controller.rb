@@ -5,6 +5,14 @@ class SchoolsController < ActionController::Base
 
       respond_to do |format|
       format.json {render json: @schools}
+     end
+   end
+
+   def show
+     @school = School.find(params[:school_id])
+
+     respond_to do |format|
+     format.json {render json: @schools}
     end
-  end
+   end
 end
