@@ -11,6 +11,16 @@ RSpec.describe ReviewsController, type: :controller do
     end
   end
 
+  describe "POST create" do
+    let(:teacher) { create(:teacher) }
+
+    it "creates a new record for review" do
+      post :create, teacher_id: teacher.to_param, format: :json
+      expect(assigns(:reviews)).to eq reviews
+    end
+  end
+
+end
  #
  # describe "GET show" do
  #  it "shows review with id x" do
@@ -48,5 +58,3 @@ RSpec.describe ReviewsController, type: :controller do
  #       end
  #     end
  #   end
-
-end

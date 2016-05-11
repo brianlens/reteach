@@ -3,6 +3,10 @@ class TeachersController < ActionController::Base
 
   def index
     @teachers = @school.teachers
+
+      respond_to do |format|
+      format.json {render json: @teachers}
+    end
   end
 
   protected
