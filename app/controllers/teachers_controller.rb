@@ -2,12 +2,12 @@ class TeachersController < ActionController::Base
   before_filter :set_school
 
   def index
-      @teachers = @school.teachers
+    @teachers = @school.teachers
   end
 
-protected
+  protected
 
   def set_school
-    @school = School.find(params[:id])
+    @school = School.find(params[:school_id])
   end
 end

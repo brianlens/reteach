@@ -1,15 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe SchoolsController, type: :controller do
- describe "GET index" do
-  it "assigns @schools" do
-      schools = School.create(
-                        name: "Codaisseur",
-                        city: "Amsterdam",
-                        rating: 4
-      )
+  describe "GET index" do
+    let!(:schools) { create_list(:school, 4) }
+
+    it "assigns all schools to @schools" do
       get :index, format: :json
-      expect(assigns(:schools)).to eq([school])
+      expect(assigns(:schools)).to eq schools
     end
   end
 end

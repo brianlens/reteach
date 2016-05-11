@@ -40,7 +40,7 @@ gem 'carrierwave'
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails' , '~> 4.0'
+  gem 'factory_girl_rails'
   gem 'faker'
   gem 'json_matchers'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,3 +57,5 @@ group :development do
   gem 'web-console', '~> 2.0'
 
 end
+
+gem 'rails_12factor', group: :production
