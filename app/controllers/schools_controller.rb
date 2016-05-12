@@ -9,7 +9,7 @@ class SchoolsController < ActionController::Base
    end
 
    def show
-     @school = School.find(params[:school_id])
+     @school = School.find(params[:id])
 
      respond_to do |format|
      format.json {render json: @schools}

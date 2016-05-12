@@ -13,14 +13,16 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
   describe "GET show" do
-    let!(:user) { create(:user) }
     let!(:teacher) { create(:teacher) }
-    let(:review) { create(:review) }
+    let!(:review) { create(:review) }
 
     it "assigns a review to @review" do
-      get :show, teacher_id: teacher.to_param, user_id: user.to_param, format: :json
+      get :show, teacher_id: teacher.to_param, id: review.to_param, format: :json
       expect(assigns(:review)).to eq review
     end
+
+    it "returns JSON format" do
+   end
   end
 
 
@@ -28,11 +30,14 @@ RSpec.describe ReviewsController, type: :controller do
   #   it "" do
   #   end
   # end
-  #
-  # describe "GET new" do
-  #   it "" do
-  #   end
-  # end
+
+
+  describe "GET new" do
+    it "assigns a new review as @review" do
+      get :new, format: :json
+      expect(assigns(:review)).to be_a_new(Review)
+    end
+  end
 
   # describe "POST create" do
   #   let!(:teacher) { create(:teacher) }
