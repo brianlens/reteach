@@ -13,12 +13,13 @@ class ReviewsController < ActionController::Base
   # end
 
   def show
-    @review = Review.find(params[:teacher_id])
+    @review = Review.find(params[:id])
 
     respond_to do |format|
     format.json {render json: @review}
    end
   end
+
   #
   # def new
   # end
