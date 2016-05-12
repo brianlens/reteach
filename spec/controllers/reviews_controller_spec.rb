@@ -11,12 +11,24 @@ RSpec.describe ReviewsController, type: :controller do
       get :index, teacher_id: teacher.to_param, user_id: user.to_param, format: :json
       expect(assigns(:reviews)).to eq reviews
     end
+    #JSON return test!
+    # it "returns json format reviews" do
+    #   get :index, format: :json
+    #   expect(response).to match_response_schema("reviews", strict: true)
+    # end
+  end
 
 
-    it "returns json format reviews" do
-      get :index, format: :json
-      expect(response).to match_response_schema("reviews", strict: true)
+  describe "GET new" do
+    it "assigns a new review as @review" do
+      get :new, format: :json
+      expect(assigns(:review)).to be_a_new(Review)
     end
+    #JSON return test!
+    # it "returns json format reviews" do
+    #   get :new, format: :json
+    #   expect(response).to match_response_schema("reviews", strict: true)
+    # end
   end
 
 
@@ -28,40 +40,40 @@ RSpec.describe ReviewsController, type: :controller do
       get :show, teacher_id: teacher.to_param, id: review.to_param, format: :json
       expect(assigns(:review)).to eq review
     end
-
-    it "returns JSON format" do
-   end
+    #JSON return test!
+    # it "returns json format reviews" do
+    #   get :show, format: :json
+    #   expect(response).to match_response_schema("reviews", strict: true)
+    # end
   end
 
 
-  # describe "POST create" do
-  #   it "" do
-  #   end
-  # end
+  describe "POST create" do
+    let!(:teacher) { create(:teacher) }
+    let!(:review) { create(:review) }
+
+    it "creates a new review" do
+      expect {
+      post :create, teacher_id: teacher.to_param, id: review.to_param, format: :json
+    }.to change(Review, :count).by(1)
+    end
+    #JSON return test!
+    # it "returns json format reviews" do
+    #   get :create, format: :json
+    #   expect(response).to match_response_schema("reviews", strict: true)
+    # end
+  end
 
 
-  describe "GET new" do
-    it "assigns a new review as @review" do
-      get :new, format: :json
-      expect(assigns(:review)).to be_a_new(Review)
+  describe "DELETE destroy" do
+    let!(:teacher) { create(:teacher) }
+    let!(:review) { create(:review) }
+
+    it "deletes a review" do
+      expect{
+      delete :destroy, teacher_id: teacher.to_param, id:review.to_param, format: :json
+    }.to change(Review, :count).by(-1)
     end
   end
 
-  # describe "POST create" do
-  #   let!(:teacher) { create(:teacher) }
-  #   let!(:user) { create(:user) }
-  #
-  #   it "creates a new review and assigns it to @reviews" do
-  #     post :create, teacher_id: teacher.to_param, format: :json
-  #     expect(assigns(:reviews)).to eq reviews
-  #   end
-  # end
-  #
-  #   describe "GET#new" do
-  #     it "assigns a new review as @reviews" do
-  #     get :new
-  #     expect(assigns(:review)).to be_a_new(Review)
-  #
-  #     end
-  #   end
 end

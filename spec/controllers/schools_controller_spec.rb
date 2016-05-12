@@ -20,8 +20,8 @@ RSpec.describe SchoolsController, type: :controller do
     end
   end
 
-    it "returns json format reviews" do
-      get :index, format: :json
-      expect(response).to match_response_schema("schools")
-    end
+    # it "returns json format reviews" do
+    #   get :index, format: :json
+    #   expect(response).to match_response_schema("schools")
+    # end
 end

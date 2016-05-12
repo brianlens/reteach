@@ -10,7 +10,11 @@ class ReviewsController < ActionController::Base
   end
 
   def create
-
+    @review = Review.new(review_params)
+    @review.save
+    respond_to do |format|
+    format.json {render json: @review}
+   end
   end
 
   def new
@@ -33,6 +37,11 @@ class ReviewsController < ActionController::Base
 
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
 
@@ -42,8 +51,7 @@ class ReviewsController < ActionController::Base
   # def set_teacher
   #   @teacher = Teacher.find(params[:teacher_id])
   # end
-
   def review_params
-    params.require(:reviews).permit(:title, :description, :teacher_id, :user_id)
+    params.permit(:title, :description, :rating, :teacher_id, :user_id)
   end
 end
