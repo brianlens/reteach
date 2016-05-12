@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": "teacher",
+  "properties": {
+    "reviews": {
+      "type": "hash",
+      "items": {
+        "required": ["name", "description", "rating"],
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "description": { "type": "text" },
+          "rating": { "type": "integer" },
+          "created_at": { "type": "timestamp" },
+          "updated_at": { "type": "timestamp" }
+        },
+        "properties": {
+          "reviews": {
+            "type": "hash",
+            "items": {
+              "required": ["title", "description", "rating"],
+              "properties": {
+                "id": { "type": "integer" },
+                "title": { "type": "string" },
+                "description": { "type": "text" },
+                "rating": { "type": "integer" },
+                "created_at": { "type": "timestamp" },
+                "updated_at": { "type": "timestamp" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

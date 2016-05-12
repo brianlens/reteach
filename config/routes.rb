@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  'teachers/index'
   get  'teachers/show'
   get  'schools/show'
+  get  'schools/index'
+
 
   devise_for :users
   root 'schools#index'

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json_matchers/rspec'
 
 RSpec.describe SchoolsController, type: :controller do
   describe "GET index" do
@@ -18,4 +19,9 @@ RSpec.describe SchoolsController, type: :controller do
       expect(assigns(:school)).to eq school
     end
   end
+
+    it "returns json format reviews" do
+      get :index, format: :json
+      expect(response).to match_response_schema("schools")
+    end
 end

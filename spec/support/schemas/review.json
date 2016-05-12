@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": "teacher",
+  "properties": {
+    "teacher": {
+      "type": "hash",
+      "items": {
+        "required": ["name", "nickname", "subject", "school", "image"],
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "nickname": { "type": "string" },
+          "school": { "type": "integer" },
+          "image": { "type": "string" },
+          "created_at": { "type": "timestamp" },
+          "updated_at": { "type": "timestamp" }
+        },
+        "properties": {
+          "review": {
+            "type": "hash",
+            "items": {
+              "required": ["title", "description", "rating", "user", "teacher"],
+              "properties": {
+                "id": { "type": "integer" },
+                "title": { "type": "string" },
+                "description": { "type": "text" },
+                "rating": { "type": "integer" },
+                "user": { "type": "integer"},
+                "teacher": { "type": "integer"},
+                "created_at": { "type": "timestamp" },
+                "updated_at": { "type": "timestamp" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

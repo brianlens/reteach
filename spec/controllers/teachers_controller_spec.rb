@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json_matchers/rspec'
 
 RSpec.describe TeachersController, type: :controller do
   let(:school) { create(:school) }

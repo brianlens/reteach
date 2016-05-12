@@ -12,13 +12,12 @@ RSpec.describe ReviewsController, type: :controller do
       expect(assigns(:reviews)).to eq reviews
     end
 
+
     it "returns json format reviews" do
       get :index, format: :json
       expect(response).to match_response_schema("reviews", strict: true)
     end
   end
-
-
 
 
   describe "GET show" do

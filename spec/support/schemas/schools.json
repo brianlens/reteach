@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": "schools",
+  "properties": {
+    "schools": {
+      "type": "array",
+      "items": {
+        "required": ["name", "city", "rating"],
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "city": { "type": "string" },
+          "rating": { "type": "integer" },
+          "created_at": { "type": "timestamp" },
+          "updated_at": { "type": "timestamp" }
+        }
+      }
+    }
+  }
+}
